@@ -3,7 +3,8 @@ const app = express(); // our app
 const PORT = process.env.PORT || 3000;
 
 // ------------ DATA -----------------
-const fruits = ['Apples', 'Kiwi', 'Blueberries', 'Mangos', 'Strawberries'];
+// inside of fruits.js
+const { fruits } = require('./models/fruits');
 
 // ------------ ROUTES ---------------
 // ******* INDEX ROUTE **********
