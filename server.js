@@ -6,6 +6,9 @@ const PORT = process.env.PORT || 3000;
 // inside of fruits.js
 const { fruits } = require('./models/fruits');
 
+// ------------ MIDDLEWARE ------------
+app.set('view engine', 'ejs'); // come back to this
+
 // ------------ ROUTES ---------------
 // ******* INDEX ROUTE **********
 app.get('/fruits', (req, res) => {
@@ -17,10 +20,12 @@ app.get('/fruits', (req, res) => {
 app.get('/fruits/:indexOfFruitsArray', (req, res) => {
     let idx = parseInt(req.params.indexOfFruitsArray);
     if (idx >= fruits.length) {
-        res.send('There is no fruit at that index.'); // one solution
+        // res.send('There is no fruit at that index.'); // one solution
         // res.send(fruits);
+        res.render('404', {});
     } else {
-        res.send(fruits[idx]);
+        // res.send(fruits[idx]);
+        res.render('show', { fruit: fruits[idx] });
     }
 });
 
