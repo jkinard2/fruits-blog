@@ -12,8 +12,8 @@ app.set('view engine', 'ejs'); // come back to this
 // ------------ ROUTES ---------------
 // ******* INDEX ROUTE **********
 app.get('/fruits', (req, res) => {
-    // send array as a response
-    res.send(fruits);
+    // send index.ejs with array of fruits
+    res.render('index', { allFruits: fruits });
 });
 
 // ******* SHOW ROUTE **********
